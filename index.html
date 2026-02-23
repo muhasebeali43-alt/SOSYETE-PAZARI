@@ -656,6 +656,81 @@
         .login-submit:hover {
             background: #c9a96e;
         }
+
+        .auth-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .auth-secondary-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #1a1a1a;
+            background: white;
+            color: #1a1a1a;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .auth-secondary-btn:hover {
+            background: #f6f6f6;
+        }
+
+        .member-panel-modal {
+            background: white;
+            width: 92%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 28px;
+        }
+
+        .member-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            margin-bottom: 4px;
+        }
+
+        .member-header p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .member-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .member-card {
+            border: 1px solid #ece6dd;
+            background: #fdfcf9;
+            padding: 16px;
+        }
+
+        .member-card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .member-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+            color: #444;
+        }
+
+        .member-list li {
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #e8e2d9;
+        }
         
         .close-modal {
             position: absolute;
@@ -1133,6 +1208,137 @@
             background: #f0f0f0;
             color: #1a1a1a;
         }
+
+        /* Admin Panel */
+        .admin-btn {
+            background: #c9a96e;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .admin-btn:hover {
+            opacity: 0.85;
+        }
+
+        .admin-panel-modal {
+            background: white;
+            width: 92%;
+            max-width: 1100px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 30px;
+        }
+
+        .admin-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e8e2d9;
+            padding-bottom: 18px;
+            margin-bottom: 24px;
+        }
+
+        .admin-panel-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: #1a1a1a;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .admin-card {
+            background: #f8f8f8;
+            border: 1px solid #ece6dd;
+            padding: 16px;
+        }
+
+        .admin-card p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-card strong {
+            font-size: 24px;
+            color: #1a1a1a;
+        }
+
+        .admin-section {
+            margin-bottom: 24px;
+        }
+
+        .admin-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            border: 1px solid #e8e2d9;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .admin-table th {
+            background: #1a1a1a;
+            color: white;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stock-low {
+            color: #d83232;
+            font-weight: 700;
+        }
+
+        .admin-form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .admin-form input,
+        .admin-form select {
+            padding: 10px;
+            border: 1px solid #e8e2d9;
+            font-size: 13px;
+            width: 100%;
+        }
+
+        .admin-form button {
+            grid-column: span 4;
+            padding: 12px;
+            border: none;
+            background: #1a1a1a;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
         
         @media (max-width: 768px) {
             .main-content {
@@ -1152,6 +1358,19 @@
                 width: 100%;
                 right: -100%;
             }
+
+            .admin-grid,
+            .admin-form {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .admin-form button {
+                grid-column: span 2;
+            }
+
+            .member-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -1167,7 +1386,7 @@
     <div class="header-left">
      <h1>SOSYETE PAZARI</h1>
     </div>
-    <div class="header-right"><button class="login-btn" id="loginBtn">Giris Yap</button>
+    <div class="header-right"><button class="admin-btn" id="adminPanelBtn">Yonetici Paneli</button> <button class="login-btn" id="loginBtn">Giris Yap</button>
      <div class="cart-icon" id="cartIcon">
       🛒 <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
      </div>
@@ -1255,8 +1474,58 @@
        <div class="form-group"><label for="email">E-posta</label> <input type="email" id="email" placeholder="ornek@email.com" required>
        </div>
        <div class="form-group"><label for="password">Sifre</label> <input type="password" id="password" placeholder="••••••" required>
-       </div><button type="submit" class="login-submit">Giris Yap</button>
+       </div>
+       <p style="font-size:12px; color:#666; margin-bottom:12px;">Yonetici hesabi: <strong>ali@sosyete.com</strong> / <strong>1234</strong></p><button type="submit" class="login-submit">Giris Yap</button>
+       <div class="auth-actions"><button type="button" class="auth-secondary-btn" id="registerOpenBtn">Yeni Kayit Ol</button></div>
       </form>
+     </div>
+    </div>
+   </div><!-- Register Modal -->
+   <div class="modal-overlay" id="registerModal">
+    <div class="login-modal"><button class="close-modal" id="closeRegisterModal">×</button>
+     <div class="modal-header">
+      <h2>YENI KAYIT</h2>
+      <p>Uyelik olusturun ve panelinizi yonetin</p>
+     </div>
+     <div class="modal-body">
+      <form id="registerForm">
+       <div class="form-group"><label for="registerName">Ad Soyad</label> <input type="text" id="registerName" placeholder="Ad Soyad" required>
+       </div>
+       <div class="form-group"><label for="registerEmail">E-posta</label> <input type="email" id="registerEmail" placeholder="ornek@email.com" required>
+       </div>
+       <div class="form-group"><label for="registerPassword">Sifre</label> <input type="password" id="registerPassword" placeholder="En az 4 karakter" minlength="4" required>
+       </div><button type="submit" class="login-submit">Kaydi Tamamla</button>
+      </form>
+     </div>
+    </div>
+   </div><!-- Uye Panel Modal -->
+   <div class="modal-overlay" id="memberPanelModal">
+    <div class="member-panel-modal"><button class="close-modal" id="closeMemberPanel">×</button>
+     <div class="member-header">
+      <h2>Uye Paneli</h2>
+      <p id="memberWelcomeText">Hos geldiniz.</p>
+     </div>
+     <div class="member-grid">
+      <div class="member-card">
+       <h3>🛒 Suanki Sepetim</h3>
+       <ul class="member-list" id="memberCartList"></ul>
+      </div>
+      <div class="member-card">
+       <h3>📦 Gecmis Alisverisler</h3>
+       <ul class="member-list" id="memberOrderHistory"></ul>
+      </div>
+      <div class="member-card">
+       <h3>🎟️ Kuponlarim</h3>
+       <ul class="member-list" id="memberCoupons"></ul>
+      </div>
+      <div class="member-card">
+       <h3>👤 Kisisel Bilgiler</h3>
+       <ul class="member-list" id="memberPersonalInfo"></ul>
+      </div>
+      <div class="member-card" style="grid-column: 1 / -1;">
+       <h3>📍 Adres Bilgileri</h3>
+       <ul class="member-list" id="memberAddressInfo"></ul>
+      </div>
      </div>
     </div>
    </div><!-- Size Selection Modal -->
@@ -1293,10 +1562,93 @@
        <div class="reviews-section" id="reviewsSection">
         <h3>Musteri Yorumlari ⭐</h3>
         <div id="reviewsList"></div>
-       </div>
+   </div>
+   </div>
+   </div><!-- Admin Panel Modal -->
+   <div class="modal-overlay" id="adminPanelModal">
+    <div class="admin-panel-modal"><button class="close-modal" id="closeAdminPanel">×</button>
+     <div class="admin-panel-header">
+      <h2>Yonetici Paneli</h2>
+      <p style="font-size: 13px; color: #666;">Siparis, stok ve urun yonetimi</p>
+     </div>
+     <div class="admin-grid">
+      <div class="admin-card">
+       <p>Toplam Siparis</p><strong id="adminTotalOrders">24</strong>
+      </div>
+      <div class="admin-card">
+       <p>Bugunku Ciro</p><strong id="adminDailyRevenue">18.450 TL</strong>
+      </div>
+      <div class="admin-card">
+       <p>Bekleyen Kargo</p><strong id="adminPendingShipments">7</strong>
+      </div>
+      <div class="admin-card">
+       <p>Dusuk Stok</p><strong id="adminLowStockCount">0</strong>
       </div>
      </div>
+     <div class="admin-section">
+      <h3>Son Siparisler</h3>
+      <table class="admin-table">
+       <thead>
+        <tr>
+         <th>Siparis No</th>
+         <th>Musteri</th>
+         <th>Tutar</th>
+         <th>Durum</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>#SP-2101</td>
+         <td>Ayse K.</td>
+         <td>2.150 TL</td>
+         <td>Hazirlaniyor</td>
+        </tr>
+        <tr>
+         <td>#SP-2100</td>
+         <td>Mehmet T.</td>
+         <td>3.870 TL</td>
+         <td>Kargoya Verildi</td>
+        </tr>
+        <tr>
+         <td>#SP-2099</td>
+         <td>Zeynep A.</td>
+         <td>1.240 TL</td>
+         <td>Teslim Edildi</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="admin-section">
+      <h3>Stok Durumu</h3>
+      <table class="admin-table" id="adminStockTable">
+       <thead>
+        <tr>
+         <th>Urun</th>
+         <th>Kategori</th>
+         <th>Stok</th>
+        </tr>
+       </thead>
+       <tbody></tbody>
+      </table>
+     </div>
+     <div class="admin-section">
+      <h3>Hizli Urun Ekle</h3>
+      <form class="admin-form" id="adminQuickAddForm">
+       <input type="text" id="adminProductName" placeholder="Urun adi" required> <input type="number" id="adminProductPrice" placeholder="Fiyat" required> <select id="adminProductCategory" required>
+        <option value="kadin">
+         Kadin
+        </option>
+        <option value="erkek">
+         Erkek
+        </option>
+        <option value="aksesuar">
+         Aksesuar
+        </option></select> <input type="number" id="adminProductStock" placeholder="Stok adedi" required> <button type="submit">Urun Ekle</button>
+      </form>
+     </div>
     </div>
+   </div>
+  </div>
    </div><!-- Size Chart Modal -->
    <div class="size-chart-modal" id="sizeChartModal">
     <div class="size-chart-content"><button class="close-detail" id="closeSizeChart">×</button>
@@ -1438,8 +1790,34 @@
         // Global state
         let cart = [];
         let currentUser = null;
+        let isAdmin = false;
+        const userAccounts = [
+            {
+                name: 'Ali',
+                email: 'ali@sosyete.com',
+                password: '1234',
+                coupons: ['HOSGELDIN150 (%10 indirim)', 'KARGO-BIZDEN (Ucretsiz Kargo)'],
+                addresses: ['Nisantasi Mah. Vali Konagi Cad. No:12 Sisli / Istanbul'],
+                orderHistory: ['#SP-2088 - 1.490 TL - Teslim Edildi', '#SP-2071 - 990 TL - Teslim Edildi']
+            },
+            {
+                name: 'Elif Demir',
+                email: 'elif@example.com',
+                password: '5678',
+                coupons: ['ELIF50 - 50 TL indirim'],
+                addresses: ['Atasehir Barbaros Mah. Begonya Sk. No:8 / Istanbul'],
+                orderHistory: ['#SP-2066 - 760 TL - Teslim Edildi']
+            }
+        ];
         let pendingProduct = null;
         let selectedSize = '';
+        const adminStockData = [
+            { name: 'Cicekli Desenli Elbise', category: 'Kadin', stock: 14 },
+            { name: 'Bogazli Kazak', category: 'Kadin', stock: 6 },
+            { name: 'Slim Fit Gomlek', category: 'Erkek', stock: 9 },
+            { name: 'Klasik Deri Kemer', category: 'Aksesuar', stock: 4 },
+            { name: 'Gunes Gozlugu Premium', category: 'Aksesuar', stock: 3 }
+        ];
 
         const products = [
             // KADIN ELBISELER
@@ -1958,6 +2336,11 @@
             }
             
             if (cart.length === 0) return;
+
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const orderRecord = `#SP-${Math.floor(Math.random() * 9000) + 1000} - ${totalAmount} TL - Hazirlaniyor`;
+            if (!currentUser.orderHistory) currentUser.orderHistory = [];
+            currentUser.orderHistory.unshift(orderRecord);
             
             showToast('Siparis basariyla tamamlandi! 🎉');
             cart = [];
@@ -1965,8 +2348,62 @@
             document.getElementById('cartDrawer').classList.remove('active');
         });
 
+        function renderMemberPanel() {
+            if (!currentUser) return;
+
+            document.getElementById('memberWelcomeText').textContent = `${currentUser.name || currentUser.email} olarak giris yaptiniz.`;
+
+            const cartList = document.getElementById('memberCartList');
+            cartList.innerHTML = '';
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li>Sepetinizde urun bulunmuyor.</li>';
+            } else {
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} / ${item.size} x ${item.quantity} - ${item.price * item.quantity} TL`;
+                    cartList.appendChild(li);
+                });
+            }
+
+            const orderList = document.getElementById('memberOrderHistory');
+            orderList.innerHTML = '';
+            (currentUser.orderHistory || ['Henuz siparisiniz yok.']).forEach(order => {
+                const li = document.createElement('li');
+                li.textContent = order;
+                orderList.appendChild(li);
+            });
+
+            const couponList = document.getElementById('memberCoupons');
+            couponList.innerHTML = '';
+            (currentUser.coupons || ['Tanimli kupon bulunmuyor.']).forEach(coupon => {
+                const li = document.createElement('li');
+                li.textContent = coupon;
+                couponList.appendChild(li);
+            });
+
+            const personalList = document.getElementById('memberPersonalInfo');
+            personalList.innerHTML = `
+                <li>Ad Soyad: ${currentUser.name || '-'}</li>
+                <li>E-posta: ${currentUser.email || '-'}</li>
+                <li>Uyelik Tipi: ${isAdmin ? 'Yonetici' : 'Standart Uye'}</li>
+            `;
+
+            const addressList = document.getElementById('memberAddressInfo');
+            addressList.innerHTML = '';
+            (currentUser.addresses || ['Kayitli adres bulunmuyor.']).forEach(address => {
+                const li = document.createElement('li');
+                li.textContent = address;
+                addressList.appendChild(li);
+            });
+        }
+
         // Login
         document.getElementById('loginBtn').addEventListener('click', () => {
+            if (currentUser && !isAdmin) {
+                renderMemberPanel();
+                document.getElementById('memberPanelModal').classList.add('active');
+                return;
+            }
             document.getElementById('loginModal').classList.add('active');
         });
 
@@ -1980,13 +2417,80 @@
             }
         });
 
+        document.getElementById('registerOpenBtn').addEventListener('click', () => {
+            document.getElementById('loginModal').classList.remove('active');
+            document.getElementById('registerModal').classList.add('active');
+        });
+
+        document.getElementById('closeRegisterModal').addEventListener('click', () => {
+            document.getElementById('registerModal').classList.remove('active');
+        });
+
+        document.getElementById('registerModal').addEventListener('click', (e) => {
+            if (e.target.id === 'registerModal') {
+                document.getElementById('registerModal').classList.remove('active');
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value.trim();
+            const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+            const password = document.getElementById('registerPassword').value;
+
+            if (userAccounts.some(user => user.email.toLowerCase() === email)) {
+                showToast('Bu e-posta ile kayitli bir hesap zaten var.');
+                return;
+            }
+
+            userAccounts.push({
+                name,
+                email,
+                password,
+                coupons: ['YENIUYE75 - 75 TL indirim'],
+                addresses: ['Lutfen adres bilginizi guncelleyin.'],
+                orderHistory: []
+            });
+
+            document.getElementById('registerForm').reset();
+            document.getElementById('registerModal').classList.remove('active');
+            document.getElementById('loginModal').classList.add('active');
+            showToast('Kayit basarili! Simdi giris yapabilirsiniz.');
+        });
+
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('email').value;
-            currentUser = { email };
-            document.getElementById('loginBtn').textContent = email.split('@')[0];
+            const username = document.getElementById('email').value.trim().toLowerCase();
+            const password = document.getElementById('password').value;
+            const matchedUser = userAccounts.find(user => user.email.toLowerCase() === username && user.password === password);
+
+            if (!matchedUser) {
+                showToast('E-posta veya sifre hatali.');
+                return;
+            }
+
+            currentUser = matchedUser;
+            isAdmin = matchedUser.email.toLowerCase() === 'ali@sosyete.com' && password === '1234';
+
+            document.getElementById('loginBtn').textContent = 'Giris Yap';
             document.getElementById('loginModal').classList.remove('active');
-            showToast('Giris basarili! Hos geldiniz.');
+            if (isAdmin) {
+                showToast('Yonetici girisi basarili. Paneli acabilirsiniz.');
+            } else {
+                showToast('Giris basarili! Hos geldiniz.');
+                renderMemberPanel();
+                document.getElementById('memberPanelModal').classList.add('active');
+            }
+        });
+
+        document.getElementById('closeMemberPanel').addEventListener('click', () => {
+            document.getElementById('memberPanelModal').classList.remove('active');
+        });
+
+        document.getElementById('memberPanelModal').addEventListener('click', (e) => {
+            if (e.target.id === 'memberPanelModal') {
+                document.getElementById('memberPanelModal').classList.remove('active');
+            }
         });
 
         // Category filter - Navigation menu with mobile support
@@ -2363,6 +2867,80 @@
             setTimeout(() => {
                 document.getElementById('supportModal').classList.remove('active');
             }, 1500);
+        });
+
+        // Admin panel helpers
+        function renderAdminStockTable() {
+            const stockBody = document.querySelector('#adminStockTable tbody');
+            if (!stockBody) return;
+
+            stockBody.innerHTML = '';
+            adminStockData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.category}</td>
+                    <td class="${item.stock <= 5 ? 'stock-low' : ''}">${item.stock}</td>
+                `;
+                stockBody.appendChild(row);
+            });
+
+            const lowStockCount = adminStockData.filter(item => item.stock <= 5).length;
+            document.getElementById('adminLowStockCount').textContent = lowStockCount;
+        }
+
+        document.getElementById('adminPanelBtn').addEventListener('click', () => {
+            if (!isAdmin) {
+                document.getElementById('loginModal').classList.add('active');
+                showToast('Yonetici paneli icin Ali / 1234 ile giris yapin.');
+                return;
+            }
+
+            renderAdminStockTable();
+            document.getElementById('adminPanelModal').classList.add('active');
+        });
+
+        document.getElementById('closeAdminPanel').addEventListener('click', () => {
+            document.getElementById('adminPanelModal').classList.remove('active');
+        });
+
+        document.getElementById('adminPanelModal').addEventListener('click', (e) => {
+            if (e.target.id === 'adminPanelModal') {
+                document.getElementById('adminPanelModal').classList.remove('active');
+            }
+        });
+
+        document.getElementById('adminQuickAddForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('adminProductName').value.trim();
+            const price = Number(document.getElementById('adminProductPrice').value);
+            const category = document.getElementById('adminProductCategory').value;
+            const stock = Number(document.getElementById('adminProductStock').value);
+
+            if (!name || !price || stock < 0) {
+                showToast('Lutfen gecerli urun bilgileri girin.');
+                return;
+            }
+
+            const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+            adminStockData.unshift({ name, category: formattedCategory, stock });
+            products.unshift({
+                name,
+                price,
+                image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=500&h=600&fit=crop',
+                category,
+                subcategory: 'yeni'
+            });
+
+            renderProducts();
+            updateCategoryCounts();
+            renderAdminStockTable();
+
+            const totalOrdersEl = document.getElementById('adminTotalOrders');
+            totalOrdersEl.textContent = String(Number(totalOrdersEl.textContent) + 1);
+
+            document.getElementById('adminQuickAddForm').reset();
+            showToast(`${name} urunu eklendi (${price} TL).`);
         });
 
         // Initialize
